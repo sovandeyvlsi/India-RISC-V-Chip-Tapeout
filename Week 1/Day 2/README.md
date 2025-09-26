@@ -79,7 +79,7 @@ Screenshot :
 ![flat2](https://github.com/user-attachments/assets/9d43603f-af76-4c7c-82f7-3a0cbee72668)
 
 
-### Various flops coding styles and optimizations :
+### Lab : Various flops coding styles and optimizations :
 ### (D2SK3) Lab flop synthesis simulations :
 
 ### Simulations :
