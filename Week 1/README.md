@@ -9,6 +9,6 @@
 ## [Day 2 :](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%202)
 ### [Lab 4 : Introduction to dot Lib (.lib)](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%202#lab-4--introduction-to-dot-lib-lib)
 ### [Lab 5 : Hierarchical Synthesis vs Flat Synthesis](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%202#lab-5--hierarchical-synthesis-vs-flat-synthesis)
-### [Various Flops Coding Styles and Optimizations](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%202#various-flops-coding-styles-and-optimizations-)
+### [Various Flops Coding Styles and Optimizations](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%202#lab--various-flops-coding-styles-and-optimizations-)
 
 ## [Day 3 :](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%203)
