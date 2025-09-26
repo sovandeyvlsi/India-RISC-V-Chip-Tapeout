@@ -79,5 +79,67 @@ Screenshot :
 ![flat2](https://github.com/user-attachments/assets/9d43603f-af76-4c7c-82f7-3a0cbee72668)
 
 
+### Various flops coding styles and optimizations :
+### (D2SK3) Lab flop synthesis simulations :
+
+### Simulations :
+
+ #### 1. D-Flipflop with asynchronus reset :
+ First we do the simulation of the design file 'dff_asyncres.v' along with its testbench 'tb_dff_asyncres.v' using iverilog and visualize the waveform using gtkwave as described in [Lab 2.](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%201#lab-2-d1sk2-l2-lab2--introduction-to-iverilog-gtkwave-part-1) (You can click on 'Lab 2' and see the process steps)
+
+Verilog file :
+
+![async reset](https://github.com/user-attachments/assets/b36cb3ba-31f3-474c-92ae-fbfc0a144aad)
+
+
+Output waveform :
+![async reset gtk](https://github.com/user-attachments/assets/a7ac9136-28c4-4b65-94fb-d4d62883224f)
+
+
+
+#### 2. D-Flipflop with asynchronus set :
+Now, we do the simulation of the design file 'dff_async_set.v' along with its testbench 'tb_dff_async_set.v' using iverilog and visualize the waveform using gtkwave. 
+
+Verilog file :
+![async set 0](https://github.com/user-attachments/assets/407f3362-c91b-4662-b5d3-9748849cf1d3)
+
+
+Output waveform :
+![async set](https://github.com/user-attachments/assets/8ab2c57f-757f-41b0-9304-8945eb024d0f)
+
+
+#### 3. D-Flipflop with synchronus reset :
+Here the reset is synchronused with the clock. 
+
+Verilog file :
+![syn reset](https://github.com/user-attachments/assets/9c851755-b6b7-45fc-87ca-9f952efd628b)
+
+
+Output waveform :
+![syn reset 2](https://github.com/user-attachments/assets/a716c69a-035e-4150-9561-7669a77c15aa)
+
+
+
+### Synthesis :
+
+Here, now we will the do the synthesis of the mentioned three designs using Yosys. For the process steps we can refer the steps mentioned in [Lab 3.](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%201#lab-3-d1sk4-l1--yosys-1-good-mux)
+
+Here, in the synthesis steps, we add an aditional step of D Flipflop library mapping after the *"synth - top design_file"* as :
+
+        dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+ #### 1. Synthesised Design of  D-Flipflop with asynchronus reset :
+![synth 1 asnc reset](https://github.com/user-attachments/assets/db7f7c02-fc06-404a-bb19-a5288ee85f12)
+
+
+#### 2. Synthesized Design D-Flipflop with asynchronus set :
+![synth 2 asnc set](https://github.com/user-attachments/assets/980f812e-1667-4f29-982b-f75a829e2aea)
+
+
+#### 3. Synthesized Design of D-Flipflop with synchronus reset :
+![synth 3 sync reset](https://github.com/user-attachments/assets/3d481533-aa5f-4cde-a129-2db39f32266a)
+
+
+
 
 
