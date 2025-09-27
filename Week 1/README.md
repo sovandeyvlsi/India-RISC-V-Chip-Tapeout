@@ -16,6 +16,6 @@
 ### [Lab-7 : Sequential Logic Optimisations](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%203#lab-7--sequential-logic-optimisations)
 
 
-## Day 4 :
-###  Lab GLS Synth Sim Mismatch
-###  Lab Synth-sim mismatch for Blocking Statement
+## [Day 4 :](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%204)
+###  [Lab : GLS Synthesis Simulation Mismatch](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%204#lab--gls-synthesis-simulation-mismatch)
+###  [Lab : Synthesis Simulation Mismatch Blocking Statement](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%204#lab--synthesis-simulation-mismatch-blocking-statement)
