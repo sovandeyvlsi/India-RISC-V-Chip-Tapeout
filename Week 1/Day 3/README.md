@@ -92,3 +92,114 @@ Synthesized Circuit of sub_module :
 ![opt mul 22](https://github.com/user-attachments/assets/1f209b23-3e58-4a51-a2a9-3f0f6f7cb338)
 
 
+
+
+
+
+
+
+
+
+
+### Lab-7 : Sequential Logic Optimisations
+
+Here, we do the simulations and optimized synthesis of some Combinational circuits.
+We will follow the simulation steps mentioned in [Lab 2](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%201#lab-2-d1sk2-l2-lab2--introduction-to-iverilog-gtkwave-part-1) and also follow the synthesis steps as mentioned in [Lab 3.](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%201#lab-3-d1sk4-l1--yosys-1-good-mux)
+
+Here, in the synthesis steps, we add an aditional step of D Flipflop library mapping after the *"synth - top design_file"* as :
+
+    dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+### Circuit 1 : dff_const1.v
+Verilog Code :
+
+![dff11](https://github.com/user-attachments/assets/5dfcd05c-9a65-4a33-9f1c-0608b5f38629)
+
+
+Simulated Output Waveform :
+
+![dff12](https://github.com/user-attachments/assets/54f256a2-737f-40fd-9208-7e1519910261)
+
+
+Synthesized Circuit :
+
+
+![dff13](https://github.com/user-attachments/assets/fed7373f-f32f-42e0-acf3-d670c587eeab)
+
+
+
+### Circuit 2 : dff_const2.v
+Verilog Code :
+
+![dff21](https://github.com/user-attachments/assets/2272d7f3-ffcb-4cf9-9c52-376ecf653abd)
+
+
+Simulated Output Waveform :
+
+![dff22](https://github.com/user-attachments/assets/0a9627ad-738b-451d-8385-7d8c35c32f80)
+
+
+
+Synthesized Circuit :
+
+![dff23](https://github.com/user-attachments/assets/26fb0a62-cae1-43fb-acbe-5dc5da34800a)
+
+
+### Circuit 3 : dff_const3.v
+Verilog Code :
+
+![dff31](https://github.com/user-attachments/assets/35d3459f-16c5-45b9-957d-1107bd120a9d)
+
+
+Simulated Output Waveform :
+
+![dff32](https://github.com/user-attachments/assets/f148cd25-9534-4ee3-88e0-f53812231413)
+
+
+Synthesized Circuit :
+
+![dff33](https://github.com/user-attachments/assets/45a6af71-f486-4a73-8511-78f9d68e1593)
+
+
+### Circuit 4 : dff_const4.v
+Verilog Code :
+
+![dff41](https://github.com/user-attachments/assets/c0670792-c214-4a42-a099-b93556ee7782)
+
+
+Simulated Output Waveform :
+
+![dff42](https://github.com/user-attachments/assets/6ca280c0-7bbb-477b-87a6-2113bcdb9dd3)
+
+
+Synthesized Circuit :
+
+
+![dff43](https://github.com/user-attachments/assets/2fee24f6-9571-47f4-ab28-a122bad56fde)
+
+
+
+### Circuit 5 : dff_const5.v
+Verilog Code :
+
+![dff51](https://github.com/user-attachments/assets/c5a02924-59e1-4823-a01a-11038a42d681)
+
+
+Simulated Output Waveform :
+
+
+![dff52](https://github.com/user-attachments/assets/d6684c4a-ff26-43ec-b2e7-ec5332e3c5fd)
+
+
+Synthesized Circuit :
+
+![dff53](https://github.com/user-attachments/assets/09f449e4-e640-4fef-b599-6a447ba04005)
+
+
+
+
+
+
+
+
+
