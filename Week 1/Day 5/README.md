@@ -121,5 +121,78 @@ Gate Level Simulation (GLS) Output Waveform :
 
 
 
+# 
+#  
+# 
+
+### Lab : For and For Generate
+
+First, here we do simulation and synthesis of some verilog modules in which 'for' loops are used.
+
+We will follow the RTL simulation steps mentioned in [Lab 2](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%201#lab-2-d1sk2-l2-lab2--introduction-to-iverilog-gtkwave-part-1) and also follow the synthesis steps as mentioned in [Lab 3.](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%201#lab-3-d1sk4-l1--yosys-1-good-mux)
+
+
+
+#### Design 1 : mux_generate.v
+Verilog Code :
+
+![mux1](https://github.com/user-attachments/assets/4cd13039-dc42-488f-b560-228e8eef6a7c)
+
+
+Simulated Output Waveform :
+
+![mux2](https://github.com/user-attachments/assets/961dcab2-8e30-4388-8d51-2208967bb5ca)
+
+
+Synthesized Circuit :
+
+![mux3](https://github.com/user-attachments/assets/755d8b0c-892a-41e7-9dc9-e6ca6904806e)
+
+
+
+#### Design 2 : demux_case.v
+Verilog Code :
+
+![demux_case1](https://github.com/user-attachments/assets/fea575b9-7a22-4c70-832b-78190006204c)
+
+
+Simulated Output Waveform :
+
+![demux_case2](https://github.com/user-attachments/assets/61b2b87d-dd32-4817-954a-9380b37b1555)
+
+
+Synthesized Circuit :
+
+
+![demux_case3](https://github.com/user-attachments/assets/eab1b40e-3cb7-4c96-b8ee-2cf7828c1066)
+
+
+
+#### Circuit 3 : demux_generate.v
+Verilog Code :
+
+![demux_generate1](https://github.com/user-attachments/assets/774a6f36-8fbc-454b-b07c-799dd1f8b90b)
+
+
+Simulated Output Waveform :
+
+![demux_generate2](https://github.com/user-attachments/assets/15d18fbe-1279-4be8-8cb5-e8823cc96906)
+
+
+Synthesized Circuit :
+
+![demux_generate3](https://github.com/user-attachments/assets/5d8b26f0-e449-4944-88b0-0968846c1e17)
+
+
+
+
+# 
+#  
+# 
+
+
+
+
+
 
 
