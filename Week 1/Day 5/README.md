@@ -191,6 +191,45 @@ Synthesized Circuit :
 # 
 
 
+#### Circuit 4 : rca.v (Ripple Carry Adder)
+In this verilog module, 'for generate' loop is used.
+
+Verilog Code :
+rca.v
+
+![rca](https://github.com/user-attachments/assets/0c7d071e-726f-4839-b283-b83253994df9)
+
+
+fa.v
+
+
+![fa](https://github.com/user-attachments/assets/3447a9f3-08e4-4094-981d-0f8cd29e0684)
+
+
+RTL Simulated Output Waveform :
+
+
+![rca2](https://github.com/user-attachments/assets/0128c1b5-460b-4cb4-a976-65869d4bc91d)
+
+
+
+Synthesized Circuit :
+
+
+![rca3](https://github.com/user-attachments/assets/534175dd-d4ea-44c3-94f2-f92662d5d65c)
+
+
+Flattened Synthesized Circuit :
+
+
+![rca_flat](https://github.com/user-attachments/assets/d667fcf5-5555-4e99-a34f-ea2d492651c7)
+
+
+Gate Level Simulation (GLS) Output Waveform :
+
+
+![rca_gls](https://github.com/user-attachments/assets/c7bd36ed-dfcd-48bf-83c2-0c9b999a457f)
+
 
 
 
