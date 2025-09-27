@@ -19,3 +19,8 @@
 ## [Day 4 :](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%204)
 ###  [Lab : GLS Synthesis Simulation Mismatch](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%204#lab--gls-synthesis-simulation-mismatch)
 ###  [Lab : Synthesis Simulation Mismatch Blocking Statement](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%204#lab--synthesis-simulation-mismatch-blocking-statement)
+
+## [Day 5 :](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%205)
+###  [Lab : Incomplete IF](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%205#lab--incomplete-if)
+###  [Lab : Incomplete Overlapping CASE](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%205#lab--incomplete-overlapping-case)
+###  [Lab : For and For Generate](https://github.com/sovandeyvlsi/India-RISC-V-Chip-Tapeout/tree/main/Week%201/Day%205#lab--for-and-for-generate)
