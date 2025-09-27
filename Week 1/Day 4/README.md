@@ -84,4 +84,42 @@ Gate Level Simulation (GLS) Output Waveform :
 
 ### Lab : Synthesis Simulation Mismatch Blocking Statement
 
+#### Circuit  : blocking_caveat.v
+Verilog Code :
+
+![blocking1](https://github.com/user-attachments/assets/74ab8784-175b-48eb-95d5-2046ff87daad)
+
+
+RTL Simulated Output Waveform :
+
+
+![blocking2](https://github.com/user-attachments/assets/f9451fb3-4ed3-4147-be55-44d4b4fe8e2b)
+
+
+Synthesized Circuit :
+
+
+![blocking3](https://github.com/user-attachments/assets/45d9db67-c24e-4c37-b4e1-a66f1b53cbab)
+
+
+Synthesized Netlist :
+
+
+![blocking4](https://github.com/user-attachments/assets/c5ae35e6-2a7f-47ac-82ff-e3fb801ceb57)
+
+
+Gate Level Simulation (GLS) Output Waveform :
+
+
+![blocking5](https://github.com/user-attachments/assets/f82338d3-0cd6-4a49-a047-5bd1c828eb27)
+
+
+* Here we can notice that there is a GLS Synthesis Simulation Mismatch between the RTL Simulated Output Waveform and Gate Level Simulation (GLS) Output Waveform. In the RTL Simulated output, we got undesired outputs whereas in the GLS output we got the desired outputs.
+
+
+
+
+
+
+
 
