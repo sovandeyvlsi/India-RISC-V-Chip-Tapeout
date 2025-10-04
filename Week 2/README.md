@@ -67,4 +67,79 @@ This early-stage functional modeling focuses on what the chip must do, independe
 | **Testbench Development** | The golden reference model is integrated into the verification environment to automatically **compare the output of the actual RTL design against the expected output**. | **Ensures functional correctness** by automating the checking process. |
 
 
+# 
+# 
+# 
+
 ### **Part 2 – Labs**
+
+First, we need to install some required packages by the following commands :
+
+    sudo apt install make python3 python3-pip git iverilog gtkwave docker.io python-is-python3
+
+    sudo chmod 666 /var/run/docker.sock
+
+    cd ~
+
+    python3 -m venv ~/virtual_enviornment_directory
+
+    source ~/virtual_enviornment_directory/bin/activate
+
+    pip install pyyaml click sandpiper-saas
+
+    deactivate
+
+Now we can clone the VSDBabySoC repository as :
+
+    git clone https://github.com/manili/VSDBabySoC.git
+
+Now, we can do the Pre Synthesis Simulations (pre_synth_sim) as follows :
+
+    cd VSDBabySoC
+    make pre_synth_sim
+The result of the simulation (i.e. pre_synth_sim.vcd) will be stored in the output/pre_synth_sim directory.
+
+We can now view the waveforms as :
+
+    gtkwave output/pre_synth_sim/pre_synth_sim.vcd
+
+**Output Waveform :**
+![baby1](https://github.com/user-attachments/assets/c61f45a5-0835-4e40-99d2-e44cdb7f536c)
+
+
+
+## 
+**Observations :**
+
+CLK: This signal originates from the PLL block. This is the input CLK signal of the RVMYTH core.
+
+reset: This is the external input reset signal of the RVMYTH core.
+
+OUT: This is the output "OUT" signal of the VSDBabySoC module. This signal comes from the DAC (due to simulation restrictions it behaves like a digital signal which is incorrect).
+
+RV_TO_DAC[9:0]: This is the 10-bit output port of the RVMYTH core, which is fed to DAC block.
+
+OUT: This is a 'real' datatype wire which can simulate analog values. It is the output wire, 'real' datatype OUT signal of the DAC module. This signal comes from the DAC block.
+
+Reset Operation :
+
+
+![baby2 reset](https://github.com/user-attachments/assets/5e5e4e0c-cb3f-46db-ab55-1f0b4530f6fe)
+
+
+Observations:
+
+From this Waveform we can clearly see that when the *'reset'* stays high, the *RV_TO_DAC* goes undefined and the corresponding analog output *OUT* stays at zero.
+When the *'reset'* goes low, then we can observe that the *RV_TO_DAC* goes to a Specific value and the corresponding analog output *OUT* starts to change. 
+
+But there is a one clock pulse delay in between the reset signal goes low to the changing output signal.  
+
+Clock Signal :
+
+![baby3 clk](https://github.com/user-attachments/assets/dfd6eb6b-0c06-4306-b327-edb629071c49)
+
+
+Observations :
+The clock signal is generated from the PLL block. The PLL block automatically adjusts the frequency and phase of an internal oscillator using a feedback control system  to match the frequency and phase of an external input reference signal.
+
+From this waveform, we can clearly observe that the clock signal initial frequency and phase changes with time initially and then almost fixed to a value after few iterations.  
