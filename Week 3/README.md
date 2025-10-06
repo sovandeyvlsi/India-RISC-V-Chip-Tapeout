@@ -90,7 +90,8 @@ Synthesis Statistics :
 Generated Netlist :
 
 
-![new_synth_result5](https://github.com/user-attachments/assets/6ef2c731-7569-4126-8ab9-4dbe718ae029)
+![new_synth_result5 6](https://github.com/user-attachments/assets/c02d2cc3-9a66-4976-8cd2-f8bc2bbfe461)
+
 
 
 
@@ -123,10 +124,25 @@ Generated Netlist :
 
 
 
-GLS Output Waveform :
+#### Alternative Process using the *Makefile* Scripts :
+Now, all these steps can be done simply by using the *makefile* scripts as :
+
+        cd ~/VLSI/babysoc/VSDBabySoC
+
+        make synth
+
+        make post_synth_sim
+
+        gtkwave output/post_synth_sim/post_synth_sim.vcd
 
 
-![new_synth_result6](https://github.com/user-attachments/assets/36051464-f0c9-4d7d-b3c8-2518163c5069)
+
+
+**GLS Output Waveform :**
+
+
+
+![new_synth_result7](https://github.com/user-attachments/assets/23c07820-4359-40ca-9f6c-90f33a061af5)
 
 
 
