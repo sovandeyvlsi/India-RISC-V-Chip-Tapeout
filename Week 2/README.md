@@ -93,10 +93,27 @@ Now we can clone the VSDBabySoC repository as :
 
     git clone https://github.com/manili/VSDBabySoC.git
 
-Now, we can do the Pre Synthesis Simulations (pre_synth_sim) as follows :
+Now, we can do the Pre Synthesis Simulations (pre_synth_sim) using the *Makefile* script as follows :
 
     cd VSDBabySoC
     make pre_synth_sim
+Otherwise we can do it as follows:
+
+    cd VSDBabySoC
+
+    iverilog -o ../VSDBabySoC/output/pre_synth_sim/ 
+    pre_synth_sim.out -DPRE_SYNTH_SIM -I ../VSDBabySoC/src/
+    include -I ../VSDBabySoC/src/module ~/VLSI/babysoc/
+    VSDBabySoC/src/module/testbench.v -I ~/VLSI/babysoc/
+    VSDBabySoC/output/compiled_tlv
+
+    cd output/pre_synth_sim
+
+    ./pre_synth_sim.out
+
+![pre_synth](https://github.com/user-attachments/assets/6ed99899-83d0-42c9-9a3a-3fe80a23b394)
+
+
 The result of the simulation (i.e. pre_synth_sim.vcd) will be stored in the output/pre_synth_sim directory.
 
 We can now view the waveforms as :
