@@ -151,6 +151,57 @@ Now, all these steps can be done simply by using the *makefile* scripts as :
 
 
 
+### Part 2 – Fundamentals of STA (Static Timing Analysis) :
+
+Timing Path :
+
+Start Point - Flop Clk pin / input pin
+
+End Point - Flop 'd' pin / output ports
+
+
+Arrival Time - time requied for a signal to reach the end point from the start point in a timing path.
+
+Required Time -  is the latest possible moment that a signal can arrive at the input of a receiving element (like a flip-flop) and still be correctly captured by the clock edge.
+
+SLACK = Required Time − Arrival Time
+
+
+Types of Setup/ Hold Analysis :
+
+reg2reg,
+in2reg,
+reg2out,
+in2out,
+clock gating,
+recovery/removal,
+data-to-data,
+latch(time borrow/time given)
+
+Slew/ Transition Analysis :
+ Data(max/min), Clock (max/min)
+
+Load analysis : fanout (max/min), capacitance
+Clock Analysis: Pulse width
+
+**Setup Analysis :**
+
+Actual Arrival Time(AAT) : time at any 'node' where we see 'latest transition' after 'first rise clock edge'
+
+Required Arrival Time(RAT) : time at any 'node' where we expect 'latest transition' within 'clock cycle'.
+
+SLACK(S) = RAT-AAT
+
+
+From the Eye Diagram, we can generate *jitter* values. This can be modeled using the parameter *'uncertainty'*
+
+**Hold Analysis :**
+SLACK(S)= Data Arrival Time- Data Required Time
+
+On-Chip Variation (OCV) :
+Occurs due to practically non-ideal mask and non-ideal oxidation. 
+So, it eventually effect the Drain Current of a MOSFET. 
+
 
 
 ### Part 3 – Generate Timing Graphs with OpenSTA :
