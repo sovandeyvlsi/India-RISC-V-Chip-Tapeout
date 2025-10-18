@@ -132,7 +132,7 @@ First, we will do the Id vs Vds plot for a NMOS with channel length of 0.15 micr
 To simulate this SPICE Netlist, we use *ngspice* as :
 
     ngspice file_name.spice
-Then, to plot the drain current (Id) plot :
+Then, to plot the drain current (Id) :
 
     plot -vdd#branch
 
@@ -207,7 +207,7 @@ Here, we will do the Id vs Vgs plot of a NMOS for a fixed value of Vds, to extra
 To simulate this SPICE Netlist, we use *ngspice* as :
 
     ngspice file_name.spice
-Then, to plot the drain current (Id) plot :
+Then, to plot the drain current (Id) :
 
     plot -vdd#branch
 
@@ -231,3 +231,88 @@ By, linear extrapolation, we got the Threshold Voltage value as :
 
 # 
 # 
+
+
+### Day 3 –  CMOS Inverter: Voltage Transfer Characteristic (VTC)  
+**PART -1 : Switching Threshold Voltage**
+
+Here, we will plot the Voltage Transfer Characteristic (VTC) of a CMOS inverter with specification :
+
+PMOS : Width (W)= 0.84 micron , Length (L)= 0.15 micron
+
+NMOS : Width (W)= 0.36 micron, Length (L)= 0.15 micron
+
+
+#### SPICE Netlists :
+
+
+    *Model Description
+    .param temp=27
+
+
+    *Including sky130 library files
+    .lib "sky130_fd_pr/models/sky130.lib.spice" tt
+
+
+    *Netlist Description
+
+
+    XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+    XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.36 l=0.15
+
+
+    Cload out 0 50fF
+
+    Vdd vdd 0 1.8V
+    Vin in 0 1.8V
+
+    *simulation commands
+
+    .op
+
+    .dc Vin 0 1.8 0.01
+
+    .control
+    run
+    setplot dc1
+    display
+    .endc
+
+    .end
+
+
+
+To simulate this SPICE Netlist, we use *ngspice* as :
+
+    ngspice file_name.spice
+Then, to plot the VTC of the CMOS Inverter :
+
+    plot out vs in
+
+#### Plots :
+
+![D3 vtc 2](https://github.com/user-attachments/assets/fb36e374-c5e5-403c-80dd-b2e7507185aa)
+
+# 
+
+![D3 vtc swt th](https://github.com/user-attachments/assets/dfb9a5c8-b80f-41b9-818f-438f0b41cd66)
+
+
+ 
+  #
+  #
+#### Results :
+    
+From the VTC plot of the CMOS Inverter, extracted the Switching Threshold Voltage at the point on VTC where the Vin = Vout. 
+
+In the above zoomed figure, at the marked point, **Vin= 0.876905 V** and **Vout= 0.876914 V** 
+
+**Switching Threshold Voltage (Vm) = 0.8769 V**
+
+ 
+
+# 
+# 
+
+**PART -2 :Transient Analysis of CMOS Inverter**
+
