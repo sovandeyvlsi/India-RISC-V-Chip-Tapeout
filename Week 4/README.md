@@ -415,3 +415,93 @@ a= 4.33409 ns and b= 4.04943 ns
 
 # 
 # 
+### Day 3 –  CMOS Inverter: Noise Margin / Robustness Analysis 
+
+
+First, we will plot the Voltage Transfer Characteristic (VTC) of a CMOS inverter with specification :
+
+PMOS : Width (W)= 1 micron , Length (L)= 0.15 micron
+
+NMOS : Width (W)= 0.36 micron, Length (L)= 0.15 micron
+
+Then from the VTC plot, we will calculate the Noise Margins of the CMOS Inverter.
+
+#### SPICE Netlists :
+
+
+    *Model Description
+    .param temp=27
+
+
+    *Including sky130 library files
+    .lib "sky130_fd_pr/models/sky130.lib.spice" tt
+
+
+    *Netlist Description
+
+
+    XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+    XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.36 l=0.15
+
+
+    Cload out 0 50fF
+
+    Vdd vdd 0 1.8V
+    Vin in 0 1.8V
+
+    *simulation commands
+
+    .op
+
+    .dc Vin 0 1.8 0.01
+
+    .control
+    run
+    setplot dc1
+    display
+    .endc
+
+    .end
+
+
+
+
+To simulate this SPICE Netlist, we use *ngspice* as :
+
+    ngspice file_name.spice
+Then, to plot the VTC of the CMOS Inverter :
+
+    plot out vs in
+
+#### Plots :
+
+
+![D4 NM vil=0 762766, voh = 1 72364, vih= 1 00851, vol= 0 0763636](https://github.com/user-attachments/assets/b045910a-98ea-42e3-9bdd-4d3aec3c414f)
+
+
+
+ 
+  #
+  #
+
+ 
+
+#### Results :
+    
+Now, on the VTC plot pointed out the points 'A' and 'B' where the slop of the curve, i.e. dVout/ dVin = -1.
+
+
+At point 'A', Vin= 0.762766 and Vout= 1.72364
+
+At point 'B', Vin= 1.00851 and Vout= 0.0763636
+
+**So, V_IL=0.762766    and   V_OH= 1.72364**
+
+**V_IH= 1.00851 and V_OL= 0.0763636**
+
+ **Noise Margin High (NM_H) = V_OH - V_IH = 0.71513 V**
+
+ **Noise Margin Low (NM_L) = V_IL - V_OL = 0.6864 V**
+# 
+# 
+
