@@ -163,7 +163,71 @@ From this above equation we can clearly see that the drain current is linearly c
 # 
 # 
 
-**PART -2 :**
+**PART -2 : Id vs Vgs**
 
 Here, we will do the Id vs Vgs plot of a NMOS for a fixed value of Vds, to extract the Threshold Voltage(Vth) value of the NMOS. 
 
+
+#### SPICE Netlists :
+
+
+    *Model Description
+    .param temp=27
+
+
+    *Including sky130 library files
+    .lib "sky130_fd_pr/models/sky130.lib.spice" tt
+
+
+    *Netlist Description
+
+    XM1 Vdd n1 0 0 sky130_fd_pr__nfet_01v8 w=0.39 l=0.15
+
+    R1 n1 in 55
+
+    Vdd vdd 0 1.8V
+    Vin in 0 1.8V
+
+    *simulation commands
+
+    .op
+    .dc Vin 0 1.8 0.1 
+
+    .control
+
+    run
+    display
+    setplot dc1
+    .endc
+
+    .end
+
+
+
+To simulate this SPICE Netlist, we use *ngspice* as :
+
+    ngspice file_name.spice
+Then, to plot the drain current (Id) plot :
+
+    plot -vdd#branch
+
+#### Plots :
+
+![D2 id vgs 2](https://github.com/user-attachments/assets/6cacbd3a-e040-4bf0-a119-5aa9fa54537f)
+
+# 
+![D2 id vgs vth x0 = 0 778049](https://github.com/user-attachments/assets/1591b3e5-70e5-4df2-96ee-2dd672b6c282)
+
+ 
+  #
+  #
+#### Observations :
+    
+By, linear extrapolation, we got the Threshold Voltage value as :
+
+**Threshold Voltage (Vth) = 0.778049 V**
+
+ (In the above zoom in figure, the Vth point is marked in the Vgs axis)
+
+# 
+# 
