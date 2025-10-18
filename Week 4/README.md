@@ -233,7 +233,7 @@ By, linear extrapolation, we got the Threshold Voltage value as :
 # 
 
 
-### Day 3 –  CMOS Inverter: Voltage Transfer Characteristic (VTC)  
+### Day 3 –  CMOS Inverter: Voltage Transfer Characteristic (VTC) and Transient Behavior (Rise/Fall Delays)   
 **PART -1 : Switching Threshold Voltage**
 
 Here, we will plot the Voltage Transfer Characteristic (VTC) of a CMOS inverter with specification :
@@ -314,5 +314,104 @@ In the above zoomed figure, at the marked point, **Vin= 0.876905 V** and **Vout=
 # 
 # 
 
-**PART -2 :Transient Analysis of CMOS Inverter**
+**PART -2 :Transient Behavior (Rise/Fall Delays) of CMOS Inverter**
 
+Here, we will do the Transient Analysis of a CMOS Inverter and from the plot will calculate the rise and fall Propagation Delays.
+
+#### SPICE Netlists :
+
+
+    *Model Description
+    .param temp=27
+
+
+    *Including sky130 library files
+    .lib "sky130_fd_pr/models/sky130.lib.spice" tt
+
+
+    *Netlist Description
+
+
+    XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+    XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.36 l=0.15
+
+
+    Cload out 0 50fF
+
+    Vdd vdd 0 1.8V
+    Vin in 0 PULSE(0V 1.8V 0 0.1ns 0.1ns 2ns 4ns)
+
+    *simulation commands
+
+    .tran 1n 10n
+
+    .control
+    run
+    .endc
+
+    .end
+
+
+
+
+To simulate this SPICE Netlist, we use *ngspice* as :
+
+    ngspice file_name.spice
+Then, to plot the Transient Behavior of the CMOS Inverter :
+
+    plot out vs time in
+
+#### Plots :
+
+
+![D3 tran 2 ](https://github.com/user-attachments/assets/6f47cef2-e3ff-49be-ad73-2bf8ac064d39)
+
+
+ 
+  #
+  #
+
+  **For Rise Delay Calculations :**
+
+
+![D3 tran rise a = 2 48289e-09, b = 2 14934e-09](https://github.com/user-attachments/assets/0efe222f-0399-4c8d-afee-8dbbaac8967d)
+
+
+  Here, zoomed in where the Vout is rising and marked the points 'a' and 'b' on Vout and Vin respectively at Vdd/2 (Here, Vdd=1.8V so, at 0.9V) 
+
+Now, the time axis at the points :
+a= 2.48289 ns and b= 2.14934 ns
+
+  So, the Rise Delay = 0.33355 ns
+
+
+ #
+  #
+
+  **For Fall Delay Calculations :**
+  
+
+![D3 tran fall a = 4 33409e-09, b = 4 04943e-09](https://github.com/user-attachments/assets/9ef7d09f-5c7a-42ca-871e-f575c593927d)
+
+
+
+ Here, zoomed in where the Vout is failing and marked the points 'a' and 'b' on Vout and Vin respectively at Vdd/2 (Here, Vdd=1.8V so, at 0.9V) 
+
+Now, the time axis at the points :
+a= 4.33409 ns and b= 4.04943 ns
+
+  So, the Fall Delay = 0.28466 ns
+#
+  #
+
+#### Results :
+    
+
+**Rise Propagation Delay(t_rise) = 0.33355 ns**
+
+**Fall Propagation Delay(t_fall) = 0.28466 ns**
+
+ 
+
+# 
+# 
