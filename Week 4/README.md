@@ -74,6 +74,14 @@ Then, to plot the drain current (Id)  :
 ![D1 nmos id vs vds zoom](https://github.com/user-attachments/assets/35417ae3-0736-485b-a05b-c99e6feb107e)
 
 
+3] The Id values at saturation changes quadratically with the Vgs values. 
+
+**Explanation :**
+The drain current(Id) in the saturation region for a Large Channel MOSFET is given by:
+
+$$I_D = \frac{1}{2} \mu_n C_{ox} \frac{W}{L} (V_{GS} - V_{th})^2$$
+
+Here, we took the Channel length of 2 micrometer. So, there is no such small channel effects. And Id changes quadritically with Vgs in saturation region as the above equation states. 
 # 
 # 
 
