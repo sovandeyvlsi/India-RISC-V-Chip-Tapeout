@@ -221,7 +221,7 @@ Then, to plot the drain current (Id) plot :
  
   #
   #
-#### Observations :
+#### Results :
     
 By, linear extrapolation, we got the Threshold Voltage value as :
 
