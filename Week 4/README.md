@@ -415,7 +415,7 @@ a= 4.33409 ns and b= 4.04943 ns
 
 # 
 # 
-### Day 3 –  CMOS Inverter: Noise Margin / Robustness Analysis 
+### Day 4 –  CMOS Inverter: Noise Margin / Robustness Analysis 
 
 
 First, we will plot the Voltage Transfer Characteristic (VTC) of a CMOS inverter with specification :
