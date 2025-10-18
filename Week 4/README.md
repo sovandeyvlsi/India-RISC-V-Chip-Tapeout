@@ -85,4 +85,85 @@ Here, we took the Channel length of 2 micrometer. So, there is no such small cha
 # 
 # 
 
+### Day 2 –  Threshold Voltage Extraction & Velocity Saturation  :
+
+**PART -1 :**
+
+First, we will do the Id vs Vds plot for a NMOS with channel length of 0.15 micrometer to observe how the MOSFET charecteristics changes with the small channel effects. 
+
+#### SPICE Netlists :
+
+
+    *Model Description
+    .param temp=27
+
+
+    *Including sky130 library files
+    .lib "sky130_fd_pr/models/sky130.lib.spice" tt
+
+
+    *Netlist Description
+
+
+
+    XM1 Vdd n1 0 0 sky130_fd_pr__nfet_01v8 w=0.39 l=0.15
+
+    R1 n1 in 55
+
+    Vdd vdd 0 1.8V
+    Vin in 0 1.8V
+
+    *simulation commands
+
+    .op
+    .dc Vdd 0 1.8 0.1 Vin 0 1.8 0.2
+
+    .control
+
+    run
+    display
+    setplot dc1
+    .endc
+
+    .end
+
+
+
+To simulate this SPICE Netlist, we use *ngspice* as :
+
+    ngspice file_name.spice
+Then, to plot the drain current (Id) plot :
+
+    plot -vdd#branch
+
+#### Plots :
+
+![D2 id vds 2](https://github.com/user-attachments/assets/7332a838-f422-48e3-940c-cb07a19caa2c)
+
+
+ 
+  #
+  #
+#### Observations :
+    
+Here, we can clearly observe that the current in saturation region is not constant with Vds, it's increasing linearly with Vds. 
+
+And the current in the saturation region varries with Vgs linearly. 
+
+**Explanation :** 
+For a small Channel MOSFET with considering the velocity saturation and channel length modulation, the Drain current (Id) in saturation region is given by 
+  
+$$I_D =  \mu_n C_{ox} \frac{W}{L} V_{DSAT} [(V_{GS} - V_T) -\frac{1}{2} V_{DSAT}] \cdot (1 + \lambda V_{DS})$$
+
+
+From this above equation we can clearly see that the drain current is linearly changes with Vds. And the current Id is a linear function of Vgs, so the current in the saturation region varries with Vgs linearly. 
+
+ 
+
+# 
+# 
+
+**PART -2 :**
+
+Here, we will do the Id vs Vgs plot of a NMOS for a fixed value of Vds, to extract the Threshold Voltage(Vth) value of the NMOS. 
 
