@@ -627,3 +627,155 @@ The Switching Threshold Voltage and Gain for different supply voltages are tabul
 # 
 # 
 
+### PART 2 : Device Variation
+
+Here, we want to varry the PMOS and NMOS width of the CMOS Inverter and we will observe the corresponding VTC of the inverter, change in Switching Threshold Voltage (Vm) and Noise Margin as the Wp/Wn width ratio changes.
+
+Initially, we took a CMOS inverter with specification :
+
+PMOS : Width (Wp)= 7 micron , Length (L)= 0.15 micron
+
+NMOS : Width (Wn)= 0.42 micron, Length (L)= 0.15 micron
+
+Next, we will change the Wp and Wn subsequently whereas we fixed the channel length of both the NMOS and PMOS to 0.15 micron.
+
+Then from the plot, we will calculate the Switching Threshold Voltage (Vm) and Noise Margin for specific devices.
+
+#### SPICE Netlists :
+
+
+    *Model Description
+    .param temp=27
+
+
+    *Including sky130 library files
+    .lib "sky130_fd_pr/models/sky130.lib.spice" tt
+
+
+    *Netlist Description
+
+
+    XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 w=7 l=0.15
+    XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+
+
+    Cload out 0 50fF
+
+    Vdd vdd 0 1.8V
+    Vin in 0 1.8V
+
+    *simulation commands
+
+    .op
+
+    .dc Vin 0 1.8 0.01
+
+    .control
+    run
+    setplot dc1
+    display
+    .endc
+
+    .end
+
+
+
+
+
+
+
+To simulate this SPICE Netlist, we use *ngspice* as :
+
+    ngspice file_name.spice
+
+Then to plot the VTC :
+
+    plot out vs in
+#### Plots :
+
+# 
+
+**Case 1 : Wp=7 micron and Wn= 0.42 micron**
+
+![D5 device c1 wp 7 wn 0 42](https://github.com/user-attachments/assets/2d7dbcfd-fe79-4381-ac1c-bfb2384ace17)
+
+
+
+# 
+
+**Case 2 : Wp=5 micron and Wn= 0.55 micron**
+
+
+![D5 device c2 wp 5 wn 0 55](https://github.com/user-attachments/assets/57262e94-b4a7-4bf4-ad5f-e87ff83d6497)
+
+
+# 
+
+
+**Case 3 : Wp=3 micron and Wn= 0.64 micron**
+
+
+![D5 device c3 wp 3 wn 0 64](https://github.com/user-attachments/assets/f734be61-c34a-41c5-95d3-48baa6450b1c)
+
+
+# 
+
+
+**Case 4 : Wp=2 micron and Wn= 0.84 micron**
+
+
+![D5 device c4 wp 2 wn 0 84](https://github.com/user-attachments/assets/21ef49e9-c6bc-4a25-bc28-766c885ca638)
+
+
+# 
+
+
+**Case 5 : Wp=1 micron and Wn=1 micron**
+
+
+![D5 device c5 wp 1 wn 1](https://github.com/user-attachments/assets/18572cd7-2ce8-42a2-b347-31aafe109c39)
+
+
+# 
+
+
+**Case 6 : Wp=0.84 micron and Wn=2 micron**
+
+
+![D5 device c6 wp 0 84 wn 2](https://github.com/user-attachments/assets/a53d16da-161a-4dc3-8501-f4e25995d6d0)
+
+
+# 
+
+
+# 
+# 
+
+#### Results :
+    
+The Switching Threshold Voltage and Noise Margins for different Wp/Wn ratios are tabulated in the below table.
+
+
+
+
+| Width of PMOS (Wp) | Width of NMOS (Wn) | Wp/Wn Ratio | Switching Threshold Voltage (Vm) | Noise Margin Low (NM_L) | Noise Margin High (NM_H) |
+| :--- | :--- | :--- | :--- |:--- |:--- | 
+| 7 μm | 0.42 μm | 16.67 | 0.989 | 0.8225 | 0.5831 |
+| 5 μm | 0.55 μm | 9.09 | 0.9536 | 0.7881 | 0.6164 |
+| 3 μm | 0.64 μm | 4.68 | 0.922 | 0.7408 | 0.6724 |
+| 2 μm | 0.84 μm | 2.38 | 0.878 | 0.7014 | 0.7168 |
+| 1 μm | 1 μm | 1 | 0.834 | 0.6501 | 0.7971 |
+| 0.84 μm | 2 μm | 0.42 | 0.781 | 0.5721 | 0.8927 |
+
+
+# 
+# 
+
+#### Observations :
+
+As, the Wp/Wn ratio starts decreasing, i.e., PMOS is getting weaker and NMOS is getting stronger than the previous case, the corresponding Switching Threshold Voltage moves to the left and the Noise Margin (Low) decreases whereas the Noise Margin (High) increases as the Wp/Wn ratio decreases. 
+
+# 
+# 
+
+
