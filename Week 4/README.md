@@ -225,7 +225,11 @@ Then, to plot the drain current (Id) :
     
 By, linear extrapolation, we got the Threshold Voltage value as :
 
-**Threshold Voltage (Vth) = 0.778049 V**
+
+
+|Threshold Voltage (Vth) |  0.778049 V |
+| :--- | :--- |
+
 
  (In the above zoom in figure, the Vth point is marked in the Vgs axis)
 
@@ -411,7 +415,21 @@ a= 4.33409 ns and b= 4.04943 ns
 
 **Fall Propagation Delay(t_fall) = 0.28466 ns**
 
+# 
+
+**Day-3 Results :**
+
+|Switching Threshold Voltage (Vm) |  0.8769 V |
+| :--- | :--- |
+
  
+|Rise Propagation Delay(t_rise) |  0.33355 ns |
+| :--- | :--- |
+
+|Fall Propagation Delay(t_fall) | 0.28466 ns |
+| :--- | :--- |
+
+
 
 # 
 # 
@@ -499,9 +517,18 @@ At point 'B', Vin= 1.00851 and Vout= 0.0763636
 
 **V_IH= 1.00851 and V_OL= 0.0763636**
 
- **Noise Margin High (NM_H) = V_OH - V_IH = 0.71513 V**
+ **Noise Margin High (NM_H) = V_OH - V_IH**
 
- **Noise Margin Low (NM_L) = V_IL - V_OL = 0.6864 V**
+ **Noise Margin Low (NM_L) = V_IL - V_OL**
+
+
+|Noise Margin High (NM_H)  | 0.71513 V |
+| :--- | :--- |
+
+|Noise Margin Low (NM_L)  | 0.6864 V |
+| :--- | :--- |
+
+ 
 # 
 # 
 
