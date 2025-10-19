@@ -505,3 +505,125 @@ At point 'B', Vin= 1.00851 and Vout= 0.0763636
 # 
 # 
 
+
+### Day 5 –  CMOS Inverter Robustness
+
+### PART 1 : Power Supply Variation
+
+Here, we want to varry the supply voltage of the CMOS Inverter and we will observe the corresponding VTC of the inverter, change in Switching Threshold Voltage (Vm) and Gain as the supply voltage changes.
+
+Here, we took a CMOS inverter with specification :
+
+PMOS : Width (W)= 1 micron , Length (L)= 0.15 micron
+
+NMOS : Width (W)= 0.36 micron, Length (L)= 0.15 micron
+
+Then from the plot, we will calculate the Switching Threshold Voltage (Vm) and Gain for specific supply voltages.
+
+#### SPICE Netlists :
+
+
+    *Model Description
+    .param temp=27
+
+
+    *Including sky130 library files
+    .lib "sky130_fd_pr/models/sky130.lib.spice" tt
+
+
+    *Netlist Description
+
+
+    XM1 out in vdd vdd sky130_fd_pr__pfet_01v8 w=1 l=0.15
+    XM2 out in 0 0 sky130_fd_pr__nfet_01v8 w=0.36 l=0.15
+
+
+    Cload out 0 50fF
+
+    Vdd vdd 0 1.8V
+    Vin in 0 1.8V
+
+    .control
+
+    let powersupply = 1.8
+    alter Vdd = powersupply
+	let voltagesupplyvariation = 0
+	dowhile voltagesupplyvariation < 6
+	dc Vin 0 1.8 0.01
+	let powersupply = powersupply - 0.2
+	alter Vdd = powersupply
+	let voltagesupplyvariation = voltagesupplyvariation + 1
+    end
+ 
+    plot dc1.out vs in dc2.out vs in dc3.out vs in dc4.out vs in dc5.out vs in dc6.out vs in xlabel "input voltage(V)" ylabel "output voltage(V)" title "Inveter dc characteristics as a function of supply voltage"
+
+    .endc
+
+    .end
+
+
+
+
+
+To simulate this SPICE Netlist, we use *ngspice* as :
+
+    ngspice file_name.spice
+
+#### Plots :
+
+
+![D5 supply 2 vtc](https://github.com/user-attachments/assets/646f3c00-7d67-46b2-8e13-9c4c3f0f3b75)
+
+
+ 
+  #
+  #
+
+**To Find out the Switching Threshold for different Supply Voltages :**
+
+I additionally plot a straight line for "Vout=Vin" to easily find out the Switching Threshold points on each VTC curve for different supply voltages. 
+
+In this below figure, I marked all the Switching Threshold points on each VTC curve.
+
+# 
+
+![D5 supply final Vm](https://github.com/user-attachments/assets/92d4e52e-d02e-4a74-9852-d8a12d856166)
+
+
+
+# 
+
+**To Find out the Gain of the Inverter for different Supply Voltages :**
+
+In the below figure, I marked the points where dVout/dVin = -1, and from the (Vin,Vout) values at those points on each VTC, we calculated the corresponding gain of the Inverter. 
+
+
+# 
+
+![D5 supply final gain](https://github.com/user-attachments/assets/7c2d7534-4b23-412c-8c03-cf7daae2bcc8)
+
+
+
+# 
+# 
+
+#### Results :
+    
+The Switching Threshold Voltage and Gain for different supply voltages are tabulated in the below table.
+
+
+
+
+| Supply Voltage | Switching Threshold Voltage (Vm) | Gain |
+| :--- | :--- | :--- | 
+| 1.8 V | 0.88 | 7.23 | 
+| 1.6 V | 0.793 | 8.594 | 
+| 1.4 V | 0.698 | 9.453 | 
+| 1.2 V | 0.611 | 9.96 | 
+| 1.0 V | 0.533 | 10.125 | 
+| 0.8 V | 0.456 | 9.72 | 
+
+
+# 
+# 
+
