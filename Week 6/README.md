@@ -3,7 +3,7 @@
 ##  Physical Design Workshop 
 
 
-### Day 1 : 
+### Day 1 : Set up the OpenLane Flow and run Synthesis 
 
 
 First, we are going to set up the OpenLane environment. For that open the terminal in Ubuntu and use the commands as :
